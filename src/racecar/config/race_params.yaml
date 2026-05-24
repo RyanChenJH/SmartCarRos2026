@@ -1,0 +1,54 @@
+# ============================================================
+# racecar 比赛参数集中调参文件
+# 点位推荐在 RViz 中用 Publish Point 点击采集，不需要手写坐标
+# ============================================================
+
+race_manager:
+  ros__parameters:
+
+    # ---------- 地图 ----------
+    map_yaml: "/home/davinci-mini/CHEN2/src/racecar/maps/race_map.yaml"
+
+    # ---------- 话题 ----------
+    odom_topic: "/odom_combined"
+    cmd_vel_input_topic: "/cmd_vel"              # Nav2 输出
+    cmd_vel_output_topic: "/car_cmd_vel"         # 底盘驱动输入
+    clicked_point_topic: "/clicked_point"        # RViz Publish Point
+    preview_topic: "/race/preview_markers"       # RViz 中显示导航点和停车点
+    goal_frame: "map"
+
+    # ---------- 起点与计时 ----------
+    start_x: 0.0
+    start_y: 0.0
+    start_detect_radius: 0.30   # arm 时判断是否在起点附近 (m)
+    start_leave_radius: 0.45    # 离开起点多远才开始计时 (m)
+
+    # ---------- 速度限制 ----------
+    max_linear_speed: 0.35      # 最大线速度 (m/s)
+    max_angular_speed: 0.8      # 最大角速度 (rad/s)
+    publish_stop_hz: 20.0       # 停车时零速度发布频率 (Hz)
+    cmd_vel_timeout_sec: 0.5    # 超过该时间未收到 /cmd_vel 时主动发零速度 (s)
+
+    # ---------- RViz 点选导航点 ----------
+    # 默认留空：启动后在 RViz 中用 Publish Point 依次点击导航点。
+    # 若想固定点位，也可以按 [x1, y1, yaw1, x2, y2, yaw2, ...] 填写。
+    waypoints: []
+
+    # ---------- RViz 点选停车点 ----------
+    # 点击停车点时按 parking_names 顺序保存，停留时间来自 parking_dwell_seconds。
+    # parking_point_match_radius 是运行中接近该点多少米触发停车。
+    parking_names: ["stop_1", "stop_2"]
+    parking_dwell_seconds: [3.0, 5.0]
+    parking_point_match_radius: 0.8
+
+    # ---------- 停车策略 ----------
+    # true: 停车时取消当前 Nav2 goal，停完后重发
+    # false: 停车时仅门控速度，不取消 goal
+    cancel_nav_during_parking: true
+
+    # ---------- 日志 ----------
+    print_timer_period: 1.0
+
+    # ---------- Nav2 action ----------
+    navigate_action: "navigate_to_pose"
+    action_timeout_sec: 300.0

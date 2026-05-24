@@ -1,0 +1,3 @@
+键盘遥控
+    davinci-mini@davinci-mini:~$ bash racecar/car.sh 
+    

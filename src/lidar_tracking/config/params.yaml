@@ -1,0 +1,26 @@
+/**:
+  ros__parameters:
+    topic: "teleop_cmd_vel"
+
+    # PID
+    speed: 1541
+    kp: 1.40
+    ki: 0.0
+    kd: 1.30
+
+    # 路径规划权重
+    rate1: 0.80
+    rate2: 1.60
+    rate3: 1.40
+
+    # 扇形检测
+    no_cone_detection_range: 1.30
+    no_cone_sector_angle: 84.0
+
+    # 正常循迹范围
+    max_right_dis: 1.5
+    max_left_dis: 1.5
+
+    # 无锥桶巡航
+    no_cone_speed: 1535
+    no_cone_turn_angle: 105.0

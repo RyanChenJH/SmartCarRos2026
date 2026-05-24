@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<!-- ============================================================================= -->
+<!-- 激光雷达循迹ROS2包配置文件 -->
+<!-- 功能：定义包的基本信息、依赖关系和构建类型 -->
+<!-- 作者：zyh -->
+<!-- 版本：1.0 -->
+<!-- 日期：2025-08-24 -->
+<!-- ============================================================================= -->
+
+<package format="3">
+  <!-- ===== 包基本信息 ===== -->
+  
+  <!-- 包名称：必须与CMakeLists.txt中的project()名称一致 -->
+  <name>lidar_tracking</name>
+  
+  <!-- 包版本：遵循语义化版本规范 -->
+  <version>0.1.0</version>
+  
+  <!-- 包描述：简要说明包的功能和用途 -->
+  <description>激光雷达循迹ROS2包,用于小车自动沿着锥桶路线行驶</description>
+  
+  <!-- 维护者信息：包的维护者姓名和联系方式 -->
+  <maintainer email="your_email@example.com">zyh</maintainer>
+  
+  <!-- 许可证类型：MIT许可证，允许自由使用和修改 -->
+  <license>MIT</license>
+
+  <!-- ===== 构建工具依赖 ===== -->
+  
+  <!-- ament_cmake：ROS2的标准构建系统，必需依赖 -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- ===== 运行时依赖 ===== -->
+  
+  <!-- rclcpp：ROS2的C++客户端库，提供节点创建和通信功能 -->
+  <depend>rclcpp</depend>
+  
+  <!-- sensor_msgs：传感器消息包，提供LaserScan等消息类型 -->
+  <depend>sensor_msgs</depend>
+  
+  <!-- geometry_msgs：几何消息包，提供Twist等消息类型 -->
+  <depend>geometry_msgs</depend>
+  
+  <!-- std_msgs：标准消息包，提供基础消息类型支持 -->
+  <depend>std_msgs</depend>
+  
+  <!-- launch_ros：ROS2启动文件支持包，用于运行launch文件 -->
+  <depend>launch_ros</depend>
+
+  <!-- ===== 测试依赖 ===== -->
+  
+  <!-- ament_lint_auto：自动代码检查工具 -->
+  <test_depend>ament_lint_auto</test_depend>
+  
+  <!-- ament_lint_common：通用代码检查规则 -->
+  <test_depend>ament_lint_common</test_depend>
+
+  <!-- ===== 包导出配置 ===== -->
+  
+  <export>
+    <!-- 构建类型：声明这是一个ament_cmake包 -->
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
